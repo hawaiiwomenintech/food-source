@@ -12,10 +12,10 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          🥑 Avocado Prices
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div>Hawaii Women in Tech v0.0.1</div>
       </q-toolbar>
     </q-header>
 
