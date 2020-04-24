@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header>
       <q-toolbar>
         <q-btn
           flat
@@ -30,7 +30,7 @@
           header
           class="text-grey-8"
         >
-          Essential Links
+          Data Sources
         </q-item-label>
         <EssentialLink
           v-for="link in essentialLinks"
@@ -61,40 +61,16 @@ export default {
       leftDrawerOpen: false,
       essentialLinks: [
         {
-          title: 'Docs',
-          caption: 'quasar.dev',
-          icon: 'school',
-          link: 'https://quasar.dev'
+          title: 'Avocado Weights & Nutrition',
+          caption: 'usda.gov',
+          icon: 'menu_book',
+          link: 'https://fdc.nal.usda.gov/fdc-app.html#/food-details/171705/nutrients'
         },
         {
-          title: 'Github',
-          caption: 'github.com/quasarframework',
-          icon: 'code',
-          link: 'https://github.com/quasarframework'
-        },
-        {
-          title: 'Discord Chat Channel',
-          caption: 'chat.quasar.dev',
-          icon: 'chat',
-          link: 'https://chat.quasar.dev'
-        },
-        {
-          title: 'Forum',
-          caption: 'forum.quasar.dev',
-          icon: 'record_voice_over',
-          link: 'https://forum.quasar.dev'
-        },
-        {
-          title: 'Twitter',
-          caption: '@quasarframework',
-          icon: 'rss_feed',
-          link: 'https://twitter.quasar.dev'
-        },
-        {
-          title: 'Facebook',
-          caption: '@QuasarFramework',
-          icon: 'public',
-          link: 'https://facebook.quasar.dev'
+          title: 'USDA ARMS Avocado Retail Report',
+          caption: 'marketnews.usda.gov',
+          icon: 'bar_chart',
+          link: 'https://www.marketnews.usda.gov/mnp/fv-report-retail?commodity=AVOCADOS&repDate=04%2F11%2F2020&repType=&endDate=04%2F17%2F2020&run=&type=retail&startIndex=1&compareLy=No&locChoose=&portal=fv&commodityClass=&region=NATIONAL&region=HAWAII&class=FRUITS&organic=ALL&sortingColumn=avgPrice&sortingOrder=DESC'
         }
       ]
     }

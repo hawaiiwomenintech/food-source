@@ -1,13 +1,23 @@
 <template>
-  <q-page class="q-pa-md bg-grey-2 ">
-    <q-card class="echarts">
+  <q-page class="q-pa-md row items-start q-gutter-md bg-grey-2 ">
+    <q-card class="my-card">
       <q-card-section>
         <div class="text-h6 text-grey-8 text-weight-bolder">
-          Bar Chart
+          Local Prices
         </div>
       </q-card-section>
-      <q-card-section class="q-pa-none">
+      <q-card-section class="q-pa-none echarts">
         <IEcharts :option="barChartOption" :resizable="true" />
+      </q-card-section>
+    </q-card>
+    <q-card class="my-card">
+      <q-card-section>
+        <div class="text-h6 text-grey-8 text-weight-bolder">
+          Prices Over Time
+        </div>
+      </q-card-section>
+      <q-card-section class="q-pa-none echarts">
+        <IEcharts :option="lineChartOption" :resizable="true" />
       </q-card-section>
     </q-card>
   </q-page>
@@ -48,6 +58,28 @@ export default {
           { type: 'bar' },
           { type: 'bar' }
         ]
+      },
+      lineChartOption: {
+        grid: {
+          bottom: '25%'
+        },
+        legend: {},
+        tooltip: {},
+        xAxis: {
+          type: 'category',
+          data: [
+            'Jan', 'Feb', 'Mar', 'Apr', 'May'
+          ]
+        },
+        yAxis: {},
+        // Declare several bar series, each will be mapped
+        // to a column of dataset.source by default.
+        series: [
+          {
+            type: 'line',
+            data: [1, 2, 3, 4, 5]
+          }
+        ]
       }
     }
   },
@@ -60,6 +92,10 @@ export default {
 <style scoped>
   .echarts {
     width: 400px;
-    height: 440px;
+    height: 400px;
+  }
+  .my-card {
+    width: 100%;
+    max-width: 400px;
   }
 </style>
