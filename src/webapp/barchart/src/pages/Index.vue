@@ -13,11 +13,24 @@
     <q-card class="my-card">
       <q-card-section>
         <div class="text-h6 text-grey-8 text-weight-bolder">
-          Prices Over Time
+          Hawaii Avocado Prices (each)
+        </div>
+        <div class="text-subtitle1 text-grey-8">
+          Average avocado weight: <b>0.4 lbs</b>
         </div>
       </q-card-section>
       <q-card-section class="q-pa-none echarts">
-        <IEcharts :option="lineChartOption" :resizable="true" />
+        <IEcharts :option="eachLineChartOption" :resizable="true" />
+      </q-card-section>
+    </q-card>
+    <q-card class="my-card">
+      <q-card-section>
+        <div class="text-h6 text-grey-8 text-weight-bolder">
+          Hawaii Avocado Prices (pound)
+        </div>
+      </q-card-section>
+      <q-card-section class="q-pa-none echarts">
+        <IEcharts :option="poundLineChartOption" :resizable="true" />
       </q-card-section>
     </q-card>
   </q-page>
@@ -25,10 +38,16 @@
 
 <script>
 import IEcharts from 'vue-echarts-v3/src/full.js'
+
+import json from '../json/hawaii_avocado_prices.json'
+const eachPrices = json.each_prices
+const poundPrices = json.pound_prices
+
 export default {
   name: 'charts',
   data () {
     return {
+      eachPricesJson: eachPrices,
       barChartOption: {
         grid: {
           bottom: '25%'
@@ -59,7 +78,7 @@ export default {
           { type: 'bar' }
         ]
       },
-      lineChartOption: {
+      eachLineChartOption: {
         grid: {
           bottom: '25%'
         },
@@ -67,9 +86,7 @@ export default {
         tooltip: {},
         xAxis: {
           type: 'category',
-          data: [
-            'Jan', 'Feb', 'Mar', 'Apr', 'May'
-          ]
+          data: eachPrices.map(d => d.month_year)
         },
         yAxis: {},
         // Declare several bar series, each will be mapped
@@ -77,7 +94,27 @@ export default {
         series: [
           {
             type: 'line',
-            data: [1, 2, 3, 4, 5]
+            data: eachPrices.map(d => d.avg_price)
+          }
+        ]
+      },
+      poundLineChartOption: {
+        grid: {
+          bottom: '25%'
+        },
+        legend: {},
+        tooltip: {},
+        xAxis: {
+          type: 'category',
+          data: poundPrices.map(d => d.month_year)
+        },
+        yAxis: {},
+        // Declare several bar series, each will be mapped
+        // to a column of dataset.source by default.
+        series: [
+          {
+            type: 'line',
+            data: poundPrices.map(d => d.avg_price)
           }
         ]
       }

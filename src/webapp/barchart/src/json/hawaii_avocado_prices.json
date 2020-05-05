@@ -1,0 +1,94 @@
+{
+    "each_prices": [
+        {
+            "avg_price": 2.01,
+            "month_year": "5-19"
+        },
+        {
+            "avg_price": 2.1,
+            "month_year": "6-19"
+        },
+        {
+            "avg_price": 2.19,
+            "month_year": "7-19"
+        },
+        {
+            "avg_price": 1.67,
+            "month_year": "8-19"
+        },
+        {
+            "avg_price": 1.7,
+            "month_year": "9-19"
+        },
+        {
+            "avg_price": 1.67,
+            "month_year": "10-19"
+        },
+        {
+            "avg_price": 1.93,
+            "month_year": "11-19"
+        },
+        {
+            "avg_price": 1.35,
+            "month_year": "12-19"
+        },
+        {
+            "avg_price": 1.81,
+            "month_year": "1-20"
+        },
+        {
+            "avg_price": 2.04,
+            "month_year": "2-20"
+        },
+        {
+            "avg_price": 2.43,
+            "month_year": "3-20"
+        },
+        {
+            "avg_price": 1.91,
+            "month_year": "4-20"
+        }
+    ],
+    "pound_prices": [
+        {
+            "avg_price": 2.89,
+            "month_year": "5-19"
+        },
+        {
+            "avg_price": 2.98,
+            "month_year": "6-19"
+        },
+        {
+            "avg_price": 2.24,
+            "month_year": "8-19"
+        },
+        {
+            "avg_price": 2.58,
+            "month_year": "9-19"
+        },
+        {
+            "avg_price": 2.39,
+            "month_year": "10-19"
+        },
+        {
+            "avg_price": 2.62,
+            "month_year": "11-19"
+        },
+        {
+            "avg_price": 2.52,
+            "month_year": "12-19"
+        },
+        {
+            "avg_price": 2.26,
+            "month_year": "1-20"
+        },
+        {
+            "avg_price": 2.49,
+            "month_year": "2-20"
+        },
+        {
+            "avg_price": 2.59,
+            "month_year": "3-20"
+        }
+    ]
+}
