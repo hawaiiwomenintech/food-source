@@ -1,11 +1,11 @@
 {
     "each_prices": [
         {
-            "avg_price": 2.01,
+            "avg_price": 1.89,
             "month_year": "5-19"
         },
         {
-            "avg_price": 2.1,
+            "avg_price": 1.74,
             "month_year": "6-19"
         },
         {
@@ -17,7 +17,7 @@
             "month_year": "8-19"
         },
         {
-            "avg_price": 1.7,
+            "avg_price": 1.6,
             "month_year": "9-19"
         },
         {
@@ -25,30 +25,34 @@
             "month_year": "10-19"
         },
         {
-            "avg_price": 1.93,
+            "avg_price": 1.8,
             "month_year": "11-19"
         },
         {
-            "avg_price": 1.35,
+            "avg_price": 1.33,
             "month_year": "12-19"
         },
         {
-            "avg_price": 1.81,
+            "avg_price": 1.76,
             "month_year": "1-20"
         },
         {
-            "avg_price": 2.04,
+            "avg_price": 1.92,
             "month_year": "2-20"
         },
         {
-            "avg_price": 2.43,
+            "avg_price": 2.4,
             "month_year": "3-20"
         },
         {
-            "avg_price": 1.91,
+            "avg_price": 1.79,
             "month_year": "4-20"
         }
     ],
+    "greenskin_each_average_price": 0,
+    "hass_each_average_price": 1.82,
+    "non_organic_each_price": 1.82,
+    "organic_each_average_price": 1.5,
     "pound_prices": [
         {
             "avg_price": 2.89,
@@ -63,7 +67,7 @@
             "month_year": "8-19"
         },
         {
-            "avg_price": 2.58,
+            "avg_price": 2.5,
             "month_year": "9-19"
         },
         {
@@ -71,11 +75,11 @@
             "month_year": "10-19"
         },
         {
-            "avg_price": 2.62,
+            "avg_price": 2.31,
             "month_year": "11-19"
         },
         {
-            "avg_price": 2.52,
+            "avg_price": 2.47,
             "month_year": "12-19"
         },
         {
@@ -83,11 +87,11 @@
             "month_year": "1-20"
         },
         {
-            "avg_price": 2.49,
+            "avg_price": 2.27,
             "month_year": "2-20"
         },
         {
-            "avg_price": 2.59,
+            "avg_price": 2.49,
             "month_year": "3-20"
         }
     ]
