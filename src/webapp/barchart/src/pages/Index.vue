@@ -1,15 +1,31 @@
 <template>
   <q-page class="q-pa-md row items-start q-gutter-md bg-grey-2 ">
+    <!-- Organic vs non-organic bar chart -->
     <q-card class="my-card">
       <q-card-section>
         <div class="text-h6 text-grey-8 text-weight-bolder">
-          Local Prices
+          Organic vs non-organic
         </div>
       </q-card-section>
-      <q-card-section class="q-pa-none echarts">
-        <IEcharts :option="barChartOption" :resizable="true" />
+      <q-card-section class="echarts">
+        <IEcharts :option="organicBarChartOption" :resizable="true" />
+      </q-card-section>
+      <div class="text-subtitle1 text-grey-8 q-pa-md">
+        <em>Interesting! <strong>Organic</strong> avocados are cheaper in Hawaii!</em>
+      </div>
+    </q-card>
+    <!-- Hass each bar chart -->
+    <q-card class="my-card">
+      <q-card-section>
+        <div class="text-h6 text-grey-8 text-weight-bolder">
+          Hass Each Hawaii vs National
+        </div>
+      </q-card-section>
+      <q-card-section class="echarts">
+        <IEcharts :option="hassEachBarChartOption" :resizable="true" />
       </q-card-section>
     </q-card>
+    <!-- Each Prices -->
     <q-card class="my-card">
       <q-card-section>
         <div class="text-h6 text-grey-8 text-weight-bolder">
@@ -25,6 +41,7 @@
         </div>
       </q-card-section>
     </q-card>
+    <!-- Pound prices -->
     <q-card class="my-card">
       <q-card-section>
         <div class="text-h6 text-grey-8 text-weight-bolder">
@@ -41,9 +58,9 @@
 <script>
 import IEcharts from 'vue-echarts-v3/src/full.js'
 
-import json from '../json/hawaii_avocado_prices.json'
-const eachPrices = json.each_prices
-const poundPrices = json.pound_prices
+import hawaiiJson from '../json/hawaii_avocado_prices.json'
+const eachPrices = hawaiiJson.each_prices
+const poundPrices = hawaiiJson.pound_prices
 
 import natlJson from '../json/national_avocado_prices.json'
 const natlEachPrices = natlJson.each_prices
@@ -57,19 +74,18 @@ export default {
   name: 'charts',
   data () {
     return {
-      barChartOption: {
+      hassEachBarChartOption: {
         grid: {
+          left: '15%',
           bottom: '25%'
         },
         legend: {},
         tooltip: {},
         dataset: {
-          dimensions: ['product', '2015', '2016', '2017'],
+          dimensions: ['origin', 'each'],
           source: [
-            { product: 'Matcha Latte', 2015: 43.3, 2016: 85.8, 2017: 93.7 },
-            { product: 'Milk Tea', 2015: 83.1, 2016: 73.4, 2017: 55.1 },
-            { product: 'Cheese Cocoa', 2015: 86.4, 2016: 65.2, 2017: 82.5 },
-            { product: 'Walnut Brownie', 2015: 72.4, 2016: 53.9, 2017: 39.1 }
+            { origin: 'Hawaii', each: hawaiiJson.hass_each_average_price },
+            { origin: 'National', each: natlJson.hass_each_average_price }
           ]
         },
         xAxis: {
@@ -78,11 +94,47 @@ export default {
             rotate: 45
           }
         },
-        yAxis: {},
+        yAxis: {
+          axisLabel: {
+            formatter: function (value) {
+              return numeral(value).format('$0.00').toUpperCase()
+            }
+          }
+        },
+        series: [
+          { type: 'bar' }
+        ]
+      },
+      organicBarChartOption: {
+        grid: {
+          left: '15%',
+          bottom: '12%'
+        },
+        legend: {},
+        tooltip: {},
+        dataset: {
+          dimensions: ['origin', 'organic', 'non organic'],
+          source: [
+            { origin: 'Hawaii', organic: hawaiiJson.organic_each_average_price, 'non organic': hawaiiJson.non_organic_each_price },
+            { origin: 'National', organic: natlJson.organic_each_average_price, 'non organic': natlJson.non_organic_each_price }
+          ]
+        },
+        xAxis: {
+          type: 'category',
+          axisLabel: {
+            rotate: 45
+          }
+        },
+        yAxis: {
+          axisLabel: {
+            formatter: function (value) {
+              return numeral(value).format('$0.00').toUpperCase()
+            }
+          }
+        },
         // Declare several bar series, each will be mapped
         // to a column of dataset.source by default.
         series: [
-          { type: 'bar' },
           { type: 'bar' },
           { type: 'bar' }
         ]
