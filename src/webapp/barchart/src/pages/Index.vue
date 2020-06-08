@@ -1,57 +1,65 @@
 <template>
-  <q-page class="q-pa-md row items-start q-gutter-md bg-grey-2 ">
-    <!-- Organic vs non-organic bar chart -->
-    <q-card class="my-card">
-      <q-card-section>
-        <div class="text-h6 text-grey-8 text-weight-bolder">
-          Organic vs non-organic
-        </div>
-      </q-card-section>
-      <q-card-section class="echarts">
-        <IEcharts :option="organicBarChartOption" :resizable="true" />
-      </q-card-section>
-      <div class="text-subtitle1 text-grey-8 q-pa-md">
-        <em>Interesting! <strong>Organic</strong> avocados are cheaper in Hawaii!</em>
-      </div>
-    </q-card>
-    <!-- Hass each bar chart -->
-    <q-card class="my-card">
-      <q-card-section>
-        <div class="text-h6 text-grey-8 text-weight-bolder">
-          Hass Each Hawaii vs National
-        </div>
-      </q-card-section>
-      <q-card-section class="echarts">
-        <IEcharts :option="hassEachBarChartOption" :resizable="true" />
-      </q-card-section>
-    </q-card>
-    <!-- Each Prices -->
-    <q-card class="my-card">
-      <q-card-section>
-        <div class="text-h6 text-grey-8 text-weight-bolder">
-          Avocado Prices Each
-        </div>
-      </q-card-section>
-      <q-card-section class="q-pa-none echarts">
-        <IEcharts :option="eachLineChartOption" :resizable="true" />
-      </q-card-section>
-      <q-card-section>
-        <div class="text-subtitle1 text-grey-8">
-          Average avocado weight: <b>0.4 lbs</b>
-        </div>
-      </q-card-section>
-    </q-card>
-    <!-- Pound prices -->
-    <q-card class="my-card">
-      <q-card-section>
-        <div class="text-h6 text-grey-8 text-weight-bolder">
-          Avocado Prices by Pound
-        </div>
-      </q-card-section>
-      <q-card-section class="q-pa-none echarts">
-        <IEcharts :option="poundLineChartOption" :resizable="true" />
-      </q-card-section>
-    </q-card>
+  <q-page class="q-pa-md items-start q-gutter-md bg-grey-2 ">
+      <h4 class="row q-ma-md">Charts</h4>
+      <div class="row q-gutter-md">
+        <!-- Organic vs non-organic bar chart -->
+        <q-card class="my-card">
+          <q-card-section>
+            <div class="text-h6 text-grey-8 text-weight-bolder">
+              Organic vs non-organic
+            </div>
+          </q-card-section>
+          <q-card-section class="echarts">
+            <IEcharts :option="organicBarChartOption" :resizable="true" />
+          </q-card-section>
+          <div class="text-subtitle1 text-grey-8 q-pa-md">
+            <em>Interesting! <strong>Organic</strong> avocados are cheaper in Hawaii!</em>
+          </div>
+        </q-card>
+        <!-- Hass each bar chart -->
+        <q-card class="my-card">
+          <q-card-section>
+            <div class="text-h6 text-grey-8 text-weight-bolder">
+              Hass Each Hawaii vs National
+            </div>
+          </q-card-section>
+          <q-card-section class="echarts">
+            <IEcharts :option="hassEachBarChartOption" :resizable="true" />
+          </q-card-section>
+        </q-card>
+        <!-- Each Prices -->
+        <q-card class="my-card">
+          <q-card-section>
+            <div class="text-h6 text-grey-8 text-weight-bolder">
+              Avocado Prices Each
+            </div>
+          </q-card-section>
+          <q-card-section class="q-pa-none echarts">
+            <IEcharts :option="eachLineChartOption" :resizable="true" />
+          </q-card-section>
+          <q-card-section>
+            <div class="text-subtitle1 text-grey-8">
+              Average avocado weight: <b>0.4 lbs</b>
+            </div>
+          </q-card-section>
+        </q-card>
+        <!-- Pound prices -->
+        <q-card class="my-card">
+          <q-card-section>
+            <div class="text-h6 text-grey-8 text-weight-bolder">
+              Avocado Prices by Pound
+            </div>
+          </q-card-section>
+          <q-card-section class="q-pa-none echarts">
+            <IEcharts :option="poundLineChartOption" :resizable="true" />
+          </q-card-section>
+        </q-card>
+    </div>
+    <div class="row">
+      <q-separator/>
+    </div>
+    <h4 class="row q-ma-md">Charts</h4>
+    <AvocadoTables/>
   </q-page>
 </template>
 
@@ -68,12 +76,15 @@ const natlPoundPrices = natlJson.pound_prices
 
 const numeral = require('numeral')
 
+import AvocadoTables from '../layouts/AvocadoTables'
+
 // How to make/style charts: https://echarts.apache.org/en/tutorial.html#ECharts%20Basic%20Concepts%20Overview
 
 export default {
   name: 'charts',
   data () {
     return {
+      xmlResult: 'N/A',
       hassEachBarChartOption: {
         grid: {
           left: '15%',
@@ -216,7 +227,12 @@ export default {
     }
   },
   components: {
-    IEcharts
+    IEcharts,
+    AvocadoTables
+  },
+  methods: {
+  },
+  created () {
   }
 }
 </script>
